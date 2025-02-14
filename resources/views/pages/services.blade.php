@@ -4,7 +4,7 @@
 <div class="relative h-64 flex items-center justify-center text-white" 
     style="background: url('{{ asset('/servicescov.png') }}') no-repeat center center; background-size: contain;">
     <div class="w-full h-full flex flex-col items-center justify-center text-center text-[#3D53CF]">
-        <h1 class="text-4xl font-bold">Our Cleaning Services</h1>
+        <h1 class="text-4xl font-bold">Cleaning Services</h1>
         <p class="mt-4 text-lg">Providing top-notch cleaning solutions for homes & businesses.</p>
     </div>
 </div>
