@@ -21,7 +21,7 @@
 <body>
 
 <!-- Navigation Bar -->
-<nav class="absolute top-0 left-0 w-full bg-[#70717554] py-4 shadow-lg z-10">
+<nav class="fixed top-0 left-0 w-full bg-[#70717554] py-4 shadow-lg z-50">
     <div class="container mx-auto flex items-center justify-between px-6">
         
         <!-- Left Section (Logo + Name) -->
