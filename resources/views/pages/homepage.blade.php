@@ -76,27 +76,63 @@
     });
 </script>
 
-<!-- Features Section -->
-<section class="flex flex-col justify-center items-center text-center py-12 mt-20">
-    <h2 class="text-3xl font-bold text-[#333333] mb-8">Why Choose FLEXIDRIVE?</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div class="flex flex-col items-center">
-            <img src="{{ asset('/keypoints/flexible.png') }}" alt="Flexibility Icon" class="h-12 mb-3" />
-            <h3 class="text-xl font-semibold text-[#333333]">Flexibility in Travel</h3>
-            <p class="mt-1 text-base text-[#706C61] text-center">Choose between self-drive or chauffeur-driven experiences for full control of your journey.</p>
+<!-- Services Overview Section -->
+<section class="py-12 mt-12">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-3xl font-bold text-[#333333]">Services</h2>
+            <a href="/services" class="text-[#333333] font-semibold hover:text-[#555555] transition flex items-center">
+                View Services <i class="fas fa-arrow-right ml-2"></i>
+            </a>
         </div>
-        <div class="flex flex-col items-center">
-            <img src="{{ asset('/keypoints/affordable.png') }}" alt="Affordable Icon" class="h-12 mb-3" />
-            <h3 class="text-xl font-semibold text-[#333333]">Affordable Solutions</h3>
-            <p class="mt-1 text-base text-[#706C61] text-center">Tailored travel options for budget-conscious travelers, including students and professionals.</p>
-        </div>
-        <div class="flex flex-col items-center">
-            <img src="{{ asset('/keypoints/ufriendly.png') }}" alt="User-Friendly Icon" class="h-12 mb-3" />
-            <h3 class="text-xl font-semibold text-[#333333]">User-Friendly Booking</h3>
-            <p class="mt-1 text-base text-[#706C61] text-center">A seamless and easy-to-use booking experience, giving you the convenience you deserve.</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            @php
+                $services = [
+                    ['title' => 'Self-Drive Rentals', 'icon' => 'car'],
+                    ['title' => 'Chauffeur Services', 'icon' => 'user-tie'],
+                    ['title' => 'Airport Transfers', 'icon' => 'plane-departure'],
+                    ['title' => 'Long-Term Rentals', 'icon' => 'calendar-alt'],
+                    ['title' => 'Corporate Rentals', 'icon' => 'briefcase'],
+                    ['title' => 'Tour Packages', 'icon' => 'map-marked-alt']
+                ];
+            @endphp
+
+            @foreach($services as $service)
+            <a href="/services" class="block bg-white border border-gray-200 shadow-md p-6 rounded-xl text-center cursor-pointer transition-transform transform hover:-translate-y-2 hover:shadow-lg">
+                <i class="fas fa-{{ $service['icon'] }} text-3xl text-gray-700"></i>
+                <h3 class="text-xl font-semibold text-gray-900 mt-3">{{ $service['title'] }}</h3>
+            </a>
+            @endforeach
         </div>
     </div>
 </section>
+
+
+<!-- Features Section -->
+<section class="flex flex-col justify-center items-center text-center py-12 mt-20 bg-[#222222] text-white">
+    <h2 class="text-2xl font-bold mb-6">Why Choose FLEXIDRIVE?</h2>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8 max-w-5xl mx-auto text-sm">
+        <div class="flex flex-col items-center">
+            <img src="{{ asset('/keypoints/flexible.png') }}" alt="Flexibility Icon" class="h-10 mb-2" />
+            <h3 class="font-semibold">Flexibility in Travel</h3>
+            <p class="mt-1 text-center">Choose self-drive or chauffeur for a tailored journey.</p>
+        </div>
+        <div class="hidden md:block w-px bg-white h-16"></div>
+        <div class="flex flex-col items-center">
+            <img src="{{ asset('/keypoints/affordable.png') }}" alt="Affordable Icon" class="h-10 mb-2" />
+            <h3 class="font-semibold">Affordable Solutions</h3>
+            <p class="mt-1 text-center">Budget-friendly travel for students and professionals.</p>
+        </div>
+        <div class="hidden md:block w-px bg-white h-16"></div>
+        <div class="flex flex-col items-center">
+            <img src="{{ asset('/keypoints/ufriendly.png') }}" alt="User-Friendly Icon" class="h-10 mb-2" />
+            <h3 class="font-semibold">User-Friendly Booking</h3>
+            <p class="mt-1 text-center">Seamless booking for your convenience.</p>
+        </div>
+    </div>
+</section>
+
 
 
 @endsection
