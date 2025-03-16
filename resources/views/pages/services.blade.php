@@ -1,36 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="relative h-64 flex items-center justify-center text-white" 
-    style="background: url('{{ asset('/servicescov.png') }}') no-repeat center center; background-size: contain;">
-    <div class="w-full h-full flex flex-col items-center justify-center text-center text-[#3D53CF]">
-        <h1 class="text-4xl font-bold">Cleaning Services</h1>
-        <p class="mt-4 text-lg">Providing top-notch cleaning solutions for homes & businesses.</p>
+<div class="relative bg-white min-h-screen py-16 px-6">
+    <!-- Header -->
+    <div class="text-center mb-12 mt-10">
+        <h1 class="text-5xl font-extrabold text-gray-900 tracking-wide">Our Services</h1>
+        <p class="text-gray-600 mt-3 text-lg">Experience comfort, luxury, and efficiency in every ride.</p>
     </div>
-</div>
 
-
-<div class="container mx-auto py-12 px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Service Cards -->
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         @php
             $services = [
-                ['image' => '/homecleaning.png', 'title' => 'Home Cleaning', 'desc' => 'Expert cleaning to keep your home fresh and spotless.'],
-                ['image' => '/office.png', 'title' => 'Office Cleaning', 'desc' => 'A clean workspace for better productivity and hygiene.'],
-                ['image' => '/deep.png', 'title' => 'Deep Cleaning', 'desc' => 'Thorough cleaning for a germ-free, healthier environment.'],
-                ['image' => '/carpet.png', 'title' => 'Carpet Cleaning', 'desc' => 'Remove stains & dirt for a fresh and hygienic carpet.'],
-                ['image' => '/window.png', 'title' => 'Window Cleaning', 'desc' => 'Crystal-clear windows for a brighter space.'],
-                ['image' => '/moving.png', 'title' => 'Move-In/Move-Out Cleaning', 'desc' => 'Stress-free transition with our detailed cleaning service.'],
+                ['title' => 'Self-Drive Rentals', 'desc' => 'Drive at your own pace with our premium cars.', 'icon' => 'car'],
+                ['title' => 'Chauffeur Services', 'desc' => 'Luxury rides with professional drivers.', 'icon' => 'user-tie'],
+                ['title' => 'Airport Transfers', 'desc' => 'Seamless pick-up & drop-off services.', 'icon' => 'plane-departure'],
+                ['title' => 'Long-Term Rentals', 'desc' => 'Exclusive plans for extended stays.', 'icon' => 'calendar-alt'],
+                ['title' => 'Corporate Rentals', 'desc' => 'Business-class solutions for executives.', 'icon' => 'briefcase'],
+                ['title' => 'Tour Packages', 'desc' => 'Explore destinations in style.', 'icon' => 'map-marked-alt']
             ];
         @endphp
 
-        @foreach ($services as $service)
-        <div class="relative bg-cover bg-center h-56 rounded-lg shadow-md overflow-hidden flex items-center justify-center text-center" 
-            style="background-image: url('{{ asset($service['image']) }}');">
-            <div class="absolute inset-0 bg-white bg-opacity-75 rounded-lg"></div>
-            <div class="relative z-10 p-4">
-                <h3 class="text-xl font-bold text-[#3D53CF]">{{ $service['title'] }}</h3>
-                <p class="text-gray-700 mt-1 text-sm">{{ $service['desc'] }}</p>
+        @foreach($services as $service)
+        <div class="relative bg-white border border-gray-200 shadow-md p-8 rounded-xl transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+            <!-- Icon -->
+            <div class="flex items-center justify-center w-16 h-16 bg-gray-100 text-gray-800 rounded-full mx-auto shadow-sm">
+                <i class="fas fa-{{ $service['icon'] }} text-3xl"></i>
             </div>
+
+            <!-- Title -->
+            <h2 class="text-2xl font-semibold text-gray-900 mt-6 text-center">{{ $service['title'] }}</h2>
+
+            <!-- Description -->
+            <p class="text-gray-600 text-center mt-3 leading-relaxed">{{ $service['desc'] }}</p>
         </div>
         @endforeach
     </div>
